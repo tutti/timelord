@@ -2,6 +2,10 @@
  * Timelord CSS
  */
 
+.timelord-clear {
+    clear: both;
+}
+
 div.timelord-container {
     position: relative;
     background-color: lightblue;
@@ -62,6 +66,9 @@ div.timelord-container {
                     background-color: lightyellow;
                     display: inline-block;
                     margin: 2px;
+                    /* IF7 fix */
+                    zoom: 1;
+                    *display: inline;
                 }
                     ul.timelord-daypicker-daymenu li.timelord-daypicker-day.weekday {
                         width: 30px;
@@ -79,6 +86,7 @@ div.timelord-container {
     div.timelord-datepicker-container {
         width: 300px;
         padding: 10px 0;
+        clear: both;
     }
         div.timelord-datepicker-container div.timelord-datepicker-inner {
             position: relative;

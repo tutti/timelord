@@ -365,6 +365,34 @@
                 s = '0' + s;
             }
             return s
+        },
+        ordinal: function(string) {
+            // Adds an ordinal suffix to the number
+            if (isNaN(string)) {
+                console.error("Tried to add ordinal suffix to non-number: " + string);
+                return string;
+            };
+            
+            var num = parseInt(string);
+            if (num < 0) {
+                console.error("Tried to add ordinal suffix to negative number: " + string)
+                return string
+            }
+            
+            if (digitAt(num, -1) == 1) {
+                return string + "th"
+            } else {
+                switch (digitAt(num, 0)) {
+                    case 1:
+                        return string + "st"
+                    case 2:
+                        return string + "nd"
+                    case 3:
+                        return string + "rd"
+                    default:
+                        return string + "th"
+                }
+            }
         }
     };
     

@@ -148,6 +148,7 @@ of available modifiers:
                     in zeroes in front of it. Intended for numbers, but works
                     for any string.
     zeropad4        Same as above, except with a length of 4.
+    ordinal         Adds an ordinal suffix to a number ("1" -> "1st").
 
 There are also several numeral modifiers. These work only on numbers, and
 convert the given number into a string representing that number in the given
