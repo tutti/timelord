@@ -24,6 +24,21 @@ This call will place a Timelord div right after the selected input field,
 containing two number inputs - hour and minute. The command above took two
 arguments, in this case 'Timepicker' and 'append'. Both of these can be changed.
 
+The first argument, 'append', controls how the Timelord field appears:
+
+    'append' causes the Timelord field to appear right after the input field
+    in the HTML code.
+    
+    'attach' does the same, but adds a few events, causing the Timelord field
+    to only appear when you click or select the input field, and go away when
+    you click anywhere else. Unlike the above, this will not take up any space
+    on the page.
+    
+    'replace' will do the same as 'append', but also hide the original input
+    field. It will still exist, and Timelord will still put the selected
+    date and/or time into it - you can still read that input field for any
+    purpose you may need it, including POST data.
+
 The second argument, 'Timepicker', is the type of Timelord picker. There are four
 different types here:
 
@@ -41,23 +56,8 @@ different types here:
     Note: The time fields in the time picker and the datetime picker are number
     input fields. This is a field that was added in HTML5; browsers that do not
     support HTML5 will simply see them as text fields. However, if jQueryUI's
-    spinner is installed, it will be used for these fields when the numer input
+    spinner is installed, it will be used for these fields when the number input
     type is not supported.
-
-The first argument, 'append', controls how the Timelord field appears:
-
-    'append' causes the Timelord field to appear right after the input field
-    in the HTML code.
-    
-    'attach' does the same, but adds a few events, causing the Timelord field
-    to only appear when you click or select the input field, and go away when
-    you click anywhere else. Unlike the above, this will not take up any space
-    on the page.
-    
-    'replace' will do the same as 'append', but also hide the original input
-    field. It will still exist, and Timelord will still put the selected
-    date and/or time into it - you can still read that input field for any
-    purpose you may need it, including POST data.
 
 2. Appearances
 
