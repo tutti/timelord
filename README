@@ -8,10 +8,10 @@
 ||+------
 +--------
 
-Timelord is a jQuery plugin that allows for more intuitive date/time input than
-a simple input field. It is pretty easy to use, too. You simply call a function
-once to add a Timelord field to an input field, and from there, the selection in
-that Timelord field will be reflected in your input field.
+Timelord is a jQuery plugin that allows for more intuitive date/time input
+than a simple input field. It is pretty easy to use, too. You simply call
+a function once to add a Timelord field to an input field, and from there,
+the selection in that Timelord field will be reflected in your input field.
 
 1. Setting up
 
@@ -22,93 +22,95 @@ on an input field:
 
 This call will place a Timelord div right after the selected input field,
 containing two number inputs - hour and minute. The command above took two
-arguments, in this case 'Timepicker' and 'append'. Both of these can be changed.
+arguments, in this case 'append' and 'Timepicker'. Both of these can be
+changed.
 
 The first argument, 'append', controls how the Timelord field appears:
 
-    'append' causes the Timelord field to appear right after the input field
-    in the HTML code.
+    'append' causes the Timelord field to appear right after the input
+    field in the HTML code.
     
-    'attach' does the same, but adds a few events, causing the Timelord field
-    to only appear when you click or select the input field, and go away when
-    you click anywhere else. Unlike the above, this will not take up any space
-    on the page.
+    'attach' does the same, but adds a few events, causing the Timelord
+    field to only appear when you click or select the input field, and go
+    away when you click anywhere else. Unlike the above, this will not take
+    up any space on the page.
     
-    'replace' will do the same as 'append', but also hide the original input
-    field. It will still exist, and Timelord will still put the selected
-    date and/or time into it - you can still read that input field for any
-    purpose you may need it, including POST data.
+    'replace' will do the same as 'append', but also hide the original
+    input field. It will still exist, and Timelord will still put the
+    selected date and/or time into it - you can still read that input field
+    for any purpose for which you may need it, such as POST data.
 
-The second argument, 'Timepicker', is the type of Timelord picker. There are four
-different types here:
+The second argument, 'Timepicker', is the type of Timelord picker. There
+are four different types here:
 
-    'Timepicker' is what was described above - allows you to select a time using
-    two input fields.
+    'Timepicker' is what was described above - allows you to select a time
+    using two input fields.
     
     'Daypicker' contains seven buttons, one for each weekday.
     
-    'Datepicker' is a calendar, which allows you to select any date of any month
-    in any year, within the limits of Javascript's datetime class.
+    'Datepicker' is a calendar, which allows you to select any date of any
+    month in any year, within the limits of Javascript's datetime class.
     
     'DateTimepicker' is a combination of the datepicker and the timepicker,
     allowing you to choose a date and a time of that date.
     
-    Note: The time fields in the time picker and the datetime picker are number
-    input fields. This is a field that was added in HTML5; browsers that do not
-    support HTML5 will simply see them as text fields. However, if jQueryUI's
-    spinner is installed, it will be used for these fields when the number input
-    type is not supported.
+    Note: The time fields in the time picker and the datetime picker are
+    number input fields. This is a field that was added in HTML5; browsers
+    that do not support HTML5 will simply see them as text fields. However,
+    if jQueryUI's spinner is installed, it will be used for these fields
+    when the number input type is not supported.
 
 2. Appearances
 
-By default, assuming you're using the included CSS file, a Timelord field will
-appear as an appropriately blue box. This appearance is intentionally very
-basic, and it is expected that you would want to change it. You can do this by
-adding rules to your own CSS, or by modifying Timelord's. If you do not want to
-use Timelord's CSS file, you can use your own, but do keep in mind that some of
-Timelord's functionality does depend on its CSS rules.
+By default, assuming you're using the included CSS file, a Timelord field
+will appear as an appropriately blue box. This appearance is intentionally
+very basic, and it is expected that you would want to change it. You can do
+this by adding rules to your own CSS, or by modifying Timelord's. If you do
+not want to use Timelord's CSS file, you can use your own, but do keep in
+mind that some of Timelord's functionality does depend on its CSS rules.
 
 3. Changing the text
 
-By default, Timelord displays the names of months and days in English. This can
-be changed using the 'option' command:
+By default, Timelord displays the names of months and days in English. This
+can be changed using the 'option' command:
 
     $.timelord('option', 'dayNames', ['Monday', 'Tuesday', ...])
 
-Notice that there is no element - the 'option' command must be called without
-one.
+Notice that there is no element - the 'option' command must be called
+without one.
 
-The second argument here is the name of the option, in this case 'dayNames'.
-The third argument is the new value of the option, in this case an array
-containing the days of the week, in order (truncated for display here).
-The option 'monthNames' works the same - it takes an array with the names of all
-the months in order. There's also 'dayNamesShort' and 'monthNamesShort', which
-takes short versions of the day and month names (e.g. three letter versions of
-each) in the same format.
+The second argument here is the name of the option, in this case
+'dayNames'. The third argument is the new value of the option, in this case
+an array containing the days of the week, in order (truncated for display
+here). The option 'monthNames' works the same - it takes an array with the
+names of all the months in order. There's also 'dayNamesShort' and
+'monthNamesShort', which take short versions of the day and month names
+(e.g. three letter versions of each) in the same format.
 
-Be aware: Changing an option will change all Timelord fields, even ones that
-have already been created.
+Be aware: Changing an option will change all Timelord fields, even ones
+that have already been created.
 
 4. Changing the input field's formatting
 
 You can change how the user's selections are printed in the input field.
-Timelord has some basic formatting functionality built into it that allows you
-to control which of its variables appear, and where. For example:
+Timelord has some basic formatting functionality built into it that allows
+you to control which of its variables appear, and where. For example:
 
     $.timelord('option', 'formatDate', '{ day } { month } { year.short }')
 
-This will be printed as three numbers separated by a space, with only the last
-two digits of the year (only the last if the first of those is 0) being printed.
+This will be printed as three numbers separated by a space, with only the
+last two digits of the year (only the last if the first of those is 0)
+being printed.
 
 There are four different format strings you can set, one for each type of
 Timelord field: formatTime, formatDay, formatDate, and formatDateTime.
 
-Anything between curly braces ({ }), including the braces, is a format tag. The
-simplest kind of format tag only has the variable name, as seen with day and
-month above. These will be replaced by the corresponding variable as-is. The
-spaces between the variable and the braces are optional; you can omit them if
-you like. Here's a list of variables currently available, including which
-Timelord fields provide them:
+Anything between curly braces ({ }), including the braces, is a format tag.
+The simplest kind of format tag only has the variable name, as seen with
+day and month above. These will be replaced by the corresponding variable
+as-is. The spaces between the variable and the braces are optional; you can
+omit them if you like. Here's a list of variables currently available,
+including which Timelord fields provide them:
 
     Variable        Timelord fields         Notes
     ---------------------------------------------------------------------
@@ -122,97 +124,99 @@ Timelord fields provide them:
     day             Date, datetime          Day of the month, not weekday
     dayname         Day, date, datetime     Name of the weekday
 
-If the variable is not recognised, or is not available for that Timelord field,
-the format tag will be replaced by an empty string.
+If the variable is not recognised, or is not available for that Timelord
+field, the format tag will be replaced by an empty string.
 
 The year variable in the above example is followed by a modifier - 'short'.
-Modifiers are basically functions that change a string before it is printed.
-You can apply several modifiers to a variable by separating them with periods
-('.'), for example:
+Modifiers are basically functions that change a string before it is
+printed. You can apply several modifiers to a variable by separating them
+with periods ('.'), for example:
 
     $.timelord('option', 'formatDay', '{ dayname.short.uppercase }')
 
-This example will cause the day picker to fill its input field with the short
-version of the day name in all uppercase (e.g. 'MON' for Monday). Here's a list
-of available modifiers:
+This example will cause the day picker to fill its input field with the
+short version of the day name in all uppercase (e.g. 'MON' for Monday).
+Here's a list of available modifiers:
 
     Modifier        Effect
     ---------------------------------------------------------------------
     uppercase       Makes a string all uppercase.
     lowercase       Makes a string all lowercase.
-    12clock         Changes a time string into a 12 hour clock format. Use on
-                    the time variable, or your own with the same format.
+    12clock         Changes a time string into a 12 hour clock format. Use
+                    on the time variable, or your own with the same format.
     short           Replaces a day- or monthname with its short version, or
                     a year (or other number) with its last two digits.
-    zeropad2        Forces a string to be at least 2 characters long, by filling
-                    in zeroes in front of it. Intended for numbers, but works
-                    for any string.
+    zeropad2        Forces a string to be at least 2 characters long, by
+                    filling in zeroes in front of it. Intended for numbers,
+                    but works for any string.
     zeropad4        Same as above, except with a length of 4.
     ordinal         Adds an ordinal suffix to a number ("1" -> "1st").
 
 There are also several numeral modifiers. These work only on numbers, and
-convert the given number into a string representing that number in the given
-numeral system.
+convert the given number into a string representing that number in the
+given numeral system.
 
-    Modifier    System              Minimum     Maximum     Notes
-    roman       Roman numerals            0        3999     Uppercase by default
-    greek       Greek numerals            1     999 999     Lowercase by default
-    japanese    Japanese numbers          0      10e+52     Valid for Chinese
+    Modifier    System              Minimum     Maximum
+    roman       Roman numerals            0        3999
+    greek       Greek numerals            1     999 999
+    japanese    Japanese numbers          0      10e+52
 
-If you want to use other variables than these in a format string, there are two
-ways to do so.
+If you want to use other variables than these in a format string, there are
+two ways to do so.
 
 The first way is to provide your own variables object:
 
     var myvars = {}
     $('input#myinput').timelord('format', myvars)
 
-The values in myvars will now be available for string formatting. There are two
-caveats here, both of which have solutions.
+The values in myvars will now be available for string formatting. There are
+two caveats here, both of which have solutions.
 
 The first is that changing the value in your object won't update the input
-field immediately. If you need the new value to show up right away, use this:
+field immediately. If you need the new value to show up right away, use
+this:
 
     $('input#myinput').timelord('update')
 
-The second caveat is that the Timelord field's variable will take priority. If
-you add a 'year' field to myvars, the 'year' value of your date picker will
-still be used. To reverse this, you can use a control character:
+The second caveat is that the Timelord field's variable will take priority.
+If you add a 'year' field to myvars, the 'year' value of your date picker
+will still be used. To reverse this, you can use a control character:
 
     $.timelord('option', 'formatDate', '{: year.short }-{ month }-{ day }')
 
-The control character is the ':' character in the year tag. This character must
-appear immediately after the opening curly brace; the optional spaces have to
-appear after it.
+The control character is the ':' character in the year tag. This character
+must appear immediately after the opening curly brace; the optional spaces
+have to appear after it.
 
-This method of using your own variables is preferable if these variables are
-going to change relatively often. If you're rarely going to change them, and
-would rather set a static value programmatically, you can use a different
-control character:
+This method of using your own variables is preferable if these variables
+are going to change relatively often. If you're rarely going to change
+them, and would rather set a static value programmatically, you can use a
+different control character:
 
     $.timelord('option', 'formatDate', '{! 2012.short }-{ month }-{ day }')
 
 This is the literal value character ('!'). It causes Timelord to use the
-specified variable name as the value. In this case, rather than trying to find
-the value of the '2012' variable, it uses '2012' AS the value. The final output
-of this is '12'.
+specified variable name as the value. In this case, rather than trying to
+find the value of the '2012' variable, it uses '2012' AS the value. The
+final output of this is '12'.
 
 This method is preferable when the value you want to use changes rarely or
 never, but you still want to apply one or more Timelord modifiers to it.
 
-If you simply want to put a value in as-is with no modifications, you don't need
-to use a format tag at all - just put it in the string as it is.
+If you simply want to put a value in as-is with no modifications, you don't
+need to use a format tag at all - just put it in the string as it is.
 
 5. Changing the value programmatically
 
-Timelord's default values are always the current date/day, at 12:00. This is not
-always desirable. If you need to use a different default value, or change the
-date or time values programmatically for any reason, you can use this method:
+Timelord's default values are always the current date/day, at 12:00. This
+is not always desirable. If you need to use a different default value, or
+change the date or time values programmatically for any reason, you can use
+this method:
 
     $('input#myinput').timelord('set', 'datetime', 2012, 12, 31, 23, 55)
 
-The above example will set a datetime picker to five minutes before new year's
-in 2012. There are four different value types you can set:
+The above example will set a datetime picker to five minutes before new
+year's in 2012. There are four different value types you can set:
 
     Value       Arguments
     ---------------------------------------------------------------------
@@ -221,6 +225,6 @@ in 2012. There are four different value types you can set:
     date        Year, month, and day - all numeric and 1-based
     datetime    Year, month, day, hour, and minute, as described above
 
-The weekday can only be set for day pickers. Setting time or date will work for
-corresponding pickers as well as datetime pickers, but setting datetime only
-works for datetime pickers.
+The weekday can only be set for day pickers. Setting time or date will work
+for corresponding pickers as well as datetime pickers, but setting datetime
+only works for datetime pickers.
