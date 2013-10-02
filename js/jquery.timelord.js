@@ -497,8 +497,18 @@
         // input field to match.
         var picker = timelordFields[Number($(event.target).attr('timelord-id'))];
         var value = getValue(picker);
-        picker.input.val(value);
+        picker.input.val(value).change();
     };
+    
+    function onChange_fieldInput(event) {
+        // Called when the value of the original field changes.
+        // This was originally handled by the above function, but
+        // a change was needed in that that would cause an infinite
+        // loop on these fields.
+        var picker = timelordFields[Number($(event.target).attr('timelord-id'))];
+        var value = getValue(picker);
+        picker.input.val(value);
+    }
     
     function onChange_spinner(event) {
         // jQueryUI spinners don't work with simple change events.
@@ -605,8 +615,8 @@
             inputTag.attr('timelord-id', picker.id);
             
             inputTag.click(onClick_attachedTimelordField);
-            inputTag.keyup(onChange_timelordInput);
-            inputTag.change(onChange_timelordInput);
+            inputTag.keyup(onChange_fieldInput);
+            inputTag.change(onChange_fieldInput);
             inputTag.focus(onFocus_attachedInput);
         },
         'append': function(inputTag, picker) {
@@ -616,8 +626,8 @@
             
             inputTag.attr('timelord-id', picker.id);
             inputTag.after(picker);
-            inputTag.keyup(onChange_timelordInput);
-            inputTag.change(onChange_timelordInput);
+            inputTag.keyup(onChange_fieldInput);
+            inputTag.change(onChange_fieldInput);
         },
         'replace': function(inputTag, picker) {
             // Replaces an input tag with a Timelord field.
@@ -628,8 +638,8 @@
             inputTag.attr('timelord-id', picker.id);
             inputTag.after(picker);
             inputTag.hide();
-            inputTag.keyup(onChange_timelordInput);
-            inputTag.change(onChange_timelordInput);
+            inputTag.keyup(onChange_fieldInput);
+            inputTag.change(onChange_fieldInput);
         }
     };
     
@@ -1080,8 +1090,8 @@
                         var hour = parseInt(arguments[2])
                         var minute = parseInt(arguments[3])
                         
-                        picker.find('.timelord-hourfield').val(hour)
-                        picker.find('.timelord-minutefield').val(minute)
+                        picker.find('.timelord-hourfield').val(hour).change()
+                        picker.find('.timelord-minutefield').val(minute).change()
                         
                         // Update the original input field with the new time value
                         picker.input.val(getValue(picker));
